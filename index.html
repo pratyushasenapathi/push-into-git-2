@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .proposal-container {
+      text-align: center;
+    }
+
+    .proposal-text {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .date-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .option {
+      padding: 20px;
+      margin: 10px;
+      background-color: #3498db;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    #yes {
+      background-color: #27ae60;
+    }
+
+    #no:hover {
+      transform: translate(
+        /* Random value between -50% and 50% for X-axis */
+        calc(-50% + 100% * random()),
+        /* Random value between -50% and 50% for Y-axis */
+        calc(-50% + 100% * random())
+      );
+    }
+  </style>
+  <script>
+    // JavaScript function to generate random value between 0 and 1
+    function random() {
+      return Math.random();
+    }
+  </script>
+  <title>Proposal Page</title>
+</head>
+<body>
+  <div class="proposal-container">
+    <div class="proposal-text">Will you go on a date with me?</div>
+  </div>
+  <div class="date-container">
+    <div class="option" id="yes">Yes</div>
+    <div class="option" id="no" onmouseover="changePosition()">No</div>
+  </div>
+
+  <script>
+    // JavaScript function to change position immediately on hover
+    function changePosition() {
+      const noDiv = document.getElementById('no');
+      noDiv.style.transform = `translate(
+        ${-50 + 100 * random()}vw,
+        ${-50 + 100 * random()}vh
+      )`;
+    }
+  </script>
+</body>
+</html>
